@@ -24,6 +24,22 @@ public class Party extends CaveElement {
 	creaturesList.add(c);
     } // end addCreature
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
 	String st = name + "\n        Members:\n";
 	for(Creature c: creaturesList) {

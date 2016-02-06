@@ -11,56 +11,10 @@ public class Cave {
     ArrayList<Party> partyList = new ArrayList<Party>();
     ArrayList<CaveElement> unusedElements = new ArrayList<CaveElement>();
     
-    public void addParty(Scanner s) {
-	Party p = new Party(s);
-	partyList.add(p);
-    } // end addParty
-    
-    public void addCreature(Scanner s) {
-	Creature c = new Creature();
-	int partyIndex = c.makeCreature(s);
-	for(Party p : partyList) {
-	    if(partyIndex == p.index) {
-		p.addCreature(c);
-		System.out.println(c.name + " added to " + p.index);
-	    } // end if
-	} // end for
-    } // end addCreature
-
-    public void addTreasure(Scanner s) {
-	Treasure t = new Treasure();
-	int creatureIndex = t.makeTreasure(s);
-	if(creatureIndex == 0) {
-	    unusedElements.add(t);
-	}else{
-	    for(Party p : partyList) {
-		for(Creature c : p.creaturesList) {
-		    if(creatureIndex == c.index) {
-			c.addTreasure(t);
-		    } // end if
-		} // end for
-	    } // end for
-	} // end if-else
-    } // end addTreasure
-    
-    public void addArtifact(Scanner s) {
-	Artifact a = new Artifact();
-	int creatureIndex = a.makeArtifact(s);
-	if(creatureIndex == 0) {
-	    unusedElements.add(a);
-	}else{
-	    for(Party p : partyList) {
-		for(Creature c : p.creaturesList) {
-		    if(creatureIndex == c.index) {
-			c.addArtifact(a);
-		    } // end if
-		} // end for
-	    } // end for
-	} // end if-else
-    } // end addArtifact
-    
+        
     public String searchCave(String searchType, String searchName) {
-	if(partyList.
+	
+	
 //	String result = "";
 //	for(Party p : partyList) {
 //	    
@@ -76,7 +30,7 @@ public class Cave {
 //		}
 //	    }
 //	}
-	return result + "\nSearch Complete.";
+	return "\nSearch Complete.";
     }
     
     public String toString() {

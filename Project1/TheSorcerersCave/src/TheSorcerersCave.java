@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -25,7 +26,9 @@ public class TheSorcerersCave extends JFrame {
     
     JTextArea jta = new JTextArea();
     JFileChooser jfc = new JFileChooser(".");
-
+    
+    HashMap<Integer, CaveElement> readFileHM;
+    
     Cave cave = new Cave();
 
     public TheSorcerersCave() {
@@ -73,6 +76,7 @@ public class TheSorcerersCave extends JFrame {
     } // end TheSorcerersCave constructor
 
     public void readFile() {
+	readFileHM = new HashMap<Integer, CaveElement>();
 	jta.append ("Read File button pressed\n");
 	JFileChooser jfc = new JFileChooser(".");
 	int returnVal = jfc.showOpenDialog(null);
@@ -90,13 +94,13 @@ public class TheSorcerersCave extends JFrame {
 		Scanner inLine = new Scanner(line).useDelimiter("\\s*:\\s*");
 		switch(line.charAt(0)){
 		case 'p':
-		case 'P': cave.addParty(inLine); break;
+		case 'P': addParty(inLine); break;
                 case 'c':
-                case 'C': cave.addCreature(inLine); break;
+                case 'C': addCreature(inLine); break;
                 case 't':
-                case 'T': cave.addTreasure(inLine); break;
+                case 'T': addTreasure(inLine); break;
                 case 'a':
-                case 'A': cave.addArtifact(inLine); break;    
+                case 'A': addArtifact(inLine); break;    
                 default: break;
 		} // end switch 
 	    } // end while
@@ -106,6 +110,49 @@ public class TheSorcerersCave extends JFrame {
 	scan.close();
     } // end readFile
     
+    public void addParty(Scanner s) {
+	Party p = new Party(s);
+	cave.partyList.add(p);
+	readFileHM.put(p.getIndex(), p);
+    } // end addParty
+    
+    public void addCreature(Scanner s) {
+	Creature c = new Creature();
+	int partyIndex = c.makeCreature(s);
+	Party p = (Party)(readFileHM.get(partyIndex));
+	if(p == null)
+	    cave.unusedElements.add(c);
+	else {
+	    p.addCreature(c);
+	} // end if-else
+	readFileHM.put(c.getIndex(), c);
+    } // end addCreature
+
+    public void addTreasure(Scanner s) {
+	Treasure t = new Treasure();
+	int creatureIndex = t.makeTreasure(s);
+	Creature c = (Creature)(readFileHM.get(creatureIndex));
+	if(c == null) {
+	    cave.unusedElements.add(t);
+	} else {
+	    c.addTreasure(t);
+	} // end if-else
+	readFileHM.put(t.getIndex(), t);
+    } // end addTreasure
+    
+    public void addArtifact(Scanner s) {
+	Artifact a = new Artifact();
+	int creatureIndex = a.makeArtifact(s);
+	Creature c = (Creature)(readFileHM.get(creatureIndex));
+	if(c == null) {
+	    cave.unusedElements.add(a);
+	} else {
+	    c.addArtifact(a);
+	} // end if-else
+	readFileHM.put(a.getIndex(), a);
+    } // end addArtifact
+
+    
     public void displayCave() {
 	jta.append("Display button pressed\n");
 	jta.setText(cave.toString());
@@ -113,7 +160,6 @@ public class TheSorcerersCave extends JFrame {
 
     public void search(String searchType, String searchName) {
 	jta.append(String.format("Searching...\nType: %s\nName: %s\n", searchType, searchName));
-	System.out.println(cave.partyList.);
     } // end search
     
     public static void main(String[] args) {
