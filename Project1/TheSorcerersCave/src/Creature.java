@@ -30,6 +30,10 @@ public class Creature extends CaveElement {
 	return partyIndex;
     } // end makeCreature
     
+    public String getName() {
+	return this.name;
+    }
+    
     public void addTreasure(Treasure t) {
 	treasureList.add(t);
     } // end addTreasure

@@ -112,8 +112,8 @@ public class TheSorcerersCave extends JFrame {
     } // end displayCave
 
     public void search(String searchType, String searchName) {
-	jta.append(String.format("Searching...\nType: %s\nName: %s\n", searchType, searchName));
-	System.out.println(cave.partyList.);
+	jta.setText(String.format("Searching %s for: %s\n", searchType, searchName));
+	jta.append(cave.searchCave(searchType, searchName));
     } // end search
     
     public static void main(String[] args) {
