@@ -1,0 +1,30 @@
+!1157;s
+J
+SAU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
+SCU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
+S+U0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
+SJU0CLASSPATH=+%;%<EXTENSION_CLASSPATHS>\012CLASSPATH+=%<JGRASP_CLASSPATHS>%;\012File\012CLASSPATH+=.%;\012CLASSPATH+=%<SRC_CLASSPATHS>%;\012ProjectOrFile\012PATH+=%<JAVA_BIN_DIR>%;\012PATH+=%<JGRASP_PATHS>%;\012Debug +Debug_Applet\012CLASSPATH=+%;%<INJECTION_CLASSPATHS>\012Compile\012NOT_FOUND_MESSAGE==Make sure you have the full JDK, not just the JRE, installed.\\nThe JDK is available from http://www.oracle.com/technetwork/java/index.html.\012Run_Applet +Debug_Applet\012ADD_APPLETVIEWER_CLASSPATH==Y\012Document\012CLASSPATH=+%;%<TOOL_CLASSPATHS>\012CLASSPATH+=%<CLASSES_DIR>%;\012
+SOU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
+SyU0PATH+=%<PYTHON_PATH>%;\012PATH+=%<JGRASP_PATHS>%;\012CYGWIN=nodosfilewarning
+SPU0
+s#i0
+s#k0
+s#j0
+s#l0
+!3064;d
+[\012  grasp [\012   legendy -29.5\012   legendx -359.5\012   version 1\012   winflags 3\012   eheight 720\012   ewidth 640\012   height 720\012   width 640\012   wbp 0\012   initlayout 0\012   yoffs 2.5\012   xoffs -721.5\012   scale 1.0\012   args ""\012   otherflags 139\012   shallowjar 1\012   visflags 118423807\012  ]\012  directed 1\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "Artifact"\012    fromclassfiledate 0\012    fromclassfilename "%\011Artifact.class"\012    fromfilename "%\011Artifact.java"\012   ]\012   id 0\012   graphics [\012    center [\012     x -721.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "Cave"\012    fromclassfiledate 0\012    fromclassfilename "%\011Cave.class"\012    fromfilename "%\011Cave.java"\012   ]\012   id 1\012   graphics [\012    center [\012     x -611.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "CaveElement"\012    fromclassfiledate 0\012    fromclassfilename "%\011CaveElement.class"\012    fromfilename "%\011CaveElement.java"\012   ]\012   id 2\012   graphics [\012    center [\012     x -493.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "Creature"\012    fromclassfiledate 0\012    fromclassfilename "%\011Creature.class"\012    fromfilename "%\011Creature.java"\012   ]\012   id 3\012   graphics [\012    center [\012     x -375.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "Party"\012    fromclassfiledate 0\012    fromclassfilename "%\011Party.class"\012    fromfilename "%\011Party.java"\012   ]\012   id 4\012   graphics [\012    center [\012     x -265.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "TheSorcerersCave"\012    fromclassfiledate 0\012    fromclassfilename "%\011TheSorcerersCave.class"\012    fromfilename "%\011TheSorcerersCave.java"\012   ]\012   id 5\012   graphics [\012    center [\012     x -131.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012  node [\012   ClassInfo [\012    condition 1\012    access2 0\012    access 2097152\012    classname "Treasure"\012    fromclassfiledate 0\012    fromclassfilename "%\011Treasure.class"\012    fromfilename "%\011Treasure.java"\012   ]\012   id 6\012   graphics [\012    center [\012     x 2.5\012     y 2.5\012     z 0.0\012    ]\012   ]\012   vgj [\012    flags 0\012   ]\012  ]\012 ]!137;g
+%\011Artifact.java
+%\011CaveElement.java
+%\011Party.java
+%\011TheSorcerersCave.java
+%\011Cave.java
+%\011Treasure.java
+%\011Creature.java
+!137;f
+%\011Artifact.java
+%\011CaveElement.java
+%\011Party.java
+%\011TheSorcerersCave.java
+%\011Cave.java
+%\011Treasure.java
+%\011Creature.java

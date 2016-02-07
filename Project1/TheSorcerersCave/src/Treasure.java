@@ -10,21 +10,45 @@ import java.util.Scanner;
 //Treasure is heald by creatures and has a weight and value
 public class Treasure extends CaveElement {
 
-    int creatureIndex;
-    double weight;
-    double value;
+    private int creatureIndex;
+    private double weight;
+    private double value;
     
     public int makeTreasure(Scanner s) {
       s.next();
-      index = s.nextInt();
-      type = s.next();
+      setIndex(s.nextInt());
+      setType(s.next());
       creatureIndex = s.nextInt();
       weight = s.nextDouble();
       value = s.nextDouble();
       return creatureIndex;
     } // end Treasure
     
+    public int getCreatureIndex() {
+        return creatureIndex;
+    }
+
+    public void setCreatureIndex(int creatureIndex) {
+        this.creatureIndex = creatureIndex;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
     public String toString() {
-	return type;
+	return getType();
     } // end toString
 } // end Treasure

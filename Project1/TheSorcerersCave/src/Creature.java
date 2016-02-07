@@ -15,16 +15,16 @@ public class Creature extends CaveElement {
     ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
     ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
     
-    int partyIndex;
-    int empathy;
-    int fear;
-    double capacity;
-    
+    private int partyIndex;
+    private int empathy;
+    private int fear;
+    private double capacity;
+
     public int makeCreature(Scanner s) {
 	s.next();
-	index = s.nextInt();
-	type = s.next();
-	name = s.next();
+	setIndex(s.nextInt());
+	setType(s.next());
+	setName(s.next());
 	partyIndex = s.nextInt();
 	empathy = s.nextInt();
 	fear = s.nextInt();
@@ -40,8 +40,40 @@ public class Creature extends CaveElement {
 	artifactList.add(a);
     } // end addArtifact
     
+    public int getPartyIndex() {
+        return partyIndex;
+    }
+
+    public void setPartyIndex(int partyIndex) {
+        this.partyIndex = partyIndex;
+    }
+
+    public int getEmpathy() {
+        return empathy;
+    }
+
+    public void setEmpathy(int empathy) {
+        this.empathy = empathy;
+    }
+
+    public int getFear() {
+        return fear;
+    }
+
+    public void setFear(int fear) {
+        this.fear = fear;
+    }
+
+    public double getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(double capacity) {
+        this.capacity = capacity;
+    }
+
     public String toString() {
-	String st = "        " + name + "\n                  Artifacts: ";
+	String st = "        " + getName() + "\n                  Artifacts: ";
 	for (Artifact a: artifactList) 
 	    st += a + " ";
 	st += "\n                  Treasures: ";

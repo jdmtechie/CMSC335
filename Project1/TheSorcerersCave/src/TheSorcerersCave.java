@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -26,7 +27,9 @@ public class TheSorcerersCave extends JFrame {
     
     JTextArea jta = new JTextArea();
     JFileChooser jfc = new JFileChooser(".");
-
+    
+    HashMap<Integer, CaveElement> readFileHM;
+    
     Cave cave = new Cave();
 
     public TheSorcerersCave() {
@@ -39,21 +42,17 @@ public class TheSorcerersCave extends JFrame {
 	JScrollPane jsp = new JScrollPane(jta);
 	add(jsp, BorderLayout.CENTER);
 
-	JLabel jl = new JLabel("Target:");
+	JLabel jlSearch = new JLabel("Search Term:");
 	JTextField jtf = new JTextField(10);
-
+	JLabel jlType = new JLabel("Search Type:"); 
 	JComboBox<String> jCombo = new JComboBox<String>();
 	jCombo.addItem("Index");
 	jCombo.addItem("Type");
 	jCombo.addItem("Name");
 
-	JButton jbRead = new JButton("Read");
+	JButton jbRead = new JButton("Open");
 	jbRead.addActionListener(
 		ae -> {readFile();}
-		);
-	JButton jbDisplay = new JButton("Display");
-	jbDisplay.addActionListener(
-		ae -> {displayCave();}
 		);
 	JButton jbSearch = new JButton("Search");
 	jbSearch.addActionListener(
@@ -62,9 +61,9 @@ public class TheSorcerersCave extends JFrame {
 
 	JPanel jp = new JPanel();
 	jp.add(jbRead);
-	jp.add(jbDisplay);
-	jp.add(jl);
+	jp.add(jlSearch);
 	jp.add(jtf);
+	jp.add(jlType);
 	jp.add(jCombo);
 	jp.add(jbSearch);
 
@@ -74,6 +73,7 @@ public class TheSorcerersCave extends JFrame {
     } // end TheSorcerersCave constructor
 
     public void readFile() {
+	readFileHM = new HashMap<Integer, CaveElement>();
 	jta.append ("Read File button pressed\n");
 	JFileChooser jfc = new JFileChooser(".");
 	int returnVal = jfc.showOpenDialog(null);
@@ -83,30 +83,75 @@ public class TheSorcerersCave extends JFrame {
 	
 	Scanner scan = null;
 	try {
+	    Scanner inLine = null;
 	    scan = new Scanner(jfc.getSelectedFile());
 	    scan.skip("//");
 	    while(scan.hasNextLine()) {
 		String line = scan.nextLine().trim();
 		if(line.length() == 0) continue;
-		Scanner inLine = new Scanner(line).useDelimiter("\\s*:\\s*");
+		inLine = new Scanner(line).useDelimiter("\\s*:\\s*");
 		switch(line.charAt(0)){
 		case 'p':
-		case 'P': cave.addParty(inLine); break;
+		case 'P': addParty(inLine); break;
                 case 'c':
-                case 'C': cave.addCreature(inLine); break;
+                case 'C': addCreature(inLine); break;
                 case 't':
-                case 'T': cave.addTreasure(inLine); break;
+                case 'T': addTreasure(inLine); break;
                 case 'a':
-                case 'A': cave.addArtifact(inLine); break;    
+                case 'A': addArtifact(inLine); break;    
                 default: break;
 		} // end switch 
 	    } // end while
+	    inLine.close();
 	}catch(FileNotFoundException e) {
 	    JOptionPane.showMessageDialog(null, "File not found.");
 	} // end try-catch
 	scan.close();
+	displayCave();
     } // end readFile
     
+    public void addParty(Scanner s) {
+	Party p = new Party(s);
+	cave.partyList.add(p);
+	readFileHM.put(p.getIndex(), p);
+    } // end addParty
+    
+    public void addCreature(Scanner s) {
+	Creature c = new Creature();
+	int partyIndex = c.makeCreature(s);
+	Party p = (Party)(readFileHM.get(partyIndex));
+	if(p == null)
+	    cave.unusedElements.add(c);
+	else {
+	    p.addCreature(c);
+	} // end if-else
+	readFileHM.put(c.getIndex(), c);
+    } // end addCreature
+
+    public void addTreasure(Scanner s) {
+	Treasure t = new Treasure();
+	int creatureIndex = t.makeTreasure(s);
+	Creature c = (Creature)(readFileHM.get(creatureIndex));
+	if(c == null) {
+	    cave.unusedElements.add(t);
+	} else {
+	    c.addTreasure(t);
+	} // end if-else
+	readFileHM.put(t.getIndex(), t);
+    } // end addTreasure
+    
+    public void addArtifact(Scanner s) {
+	Artifact a = new Artifact();
+	int creatureIndex = a.makeArtifact(s);
+	Creature c = (Creature)(readFileHM.get(creatureIndex));
+	if(c == null) {
+	    cave.unusedElements.add(a);
+	} else {
+	    c.addArtifact(a);
+	} // end if-else
+	readFileHM.put(a.getIndex(), a);
+    } // end addArtifact
+
     public void displayCave() {
 	jta.append("Display button pressed\n");
 	jta.setText(cave.toString());

@@ -10,17 +10,25 @@ import java.util.Scanner;
 //Artifacts are held by creatures
 public class Artifact extends CaveElement {
     
-    int creatureIndex;
+    private int creatureIndex;
     
     public int makeArtifact(Scanner s) {
       s.next();
-      index = s.nextInt();
-      type = s.next();
+      setIndex(s.nextInt());
+      setType(s.next());
       creatureIndex = s.nextInt();
       return creatureIndex;
     } // end makeArtifact
     
+    public int getCreatureIndex() {
+        return creatureIndex;
+    }
+
+    public void setCreatureIndex(int creatureIndex) {
+        this.creatureIndex = creatureIndex;
+    }
+
     public String toString() {
-	return type;
+	return getType();
     } // end toString()
 } // end Artifact

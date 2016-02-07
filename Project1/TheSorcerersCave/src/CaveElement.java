@@ -7,9 +7,34 @@
 
 //CaveElements are any element in the cave
 public class CaveElement {
-    int index = 0;
-    String name = "";
-    String type = "";
+    private int index = 0;
+    private String name = "";
+    private String type = "";
+    
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     
     
     public String toString() {

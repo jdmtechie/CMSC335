@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 /**
  * File: TheSorcerersCave.java
@@ -15,54 +13,7 @@ public class Cave {
     ArrayList<Party> partyList = new ArrayList<Party>();
     ArrayList<CaveElement> unusedElements = new ArrayList<CaveElement>();
     
-    public void addParty(Scanner s) {
-	Party p = new Party(s);
-	partyList.add(p);
-    } // end addParty
-    
-    public void addCreature(Scanner s) {
-	Creature c = new Creature();
-	int partyIndex = c.makeCreature(s);
-	for(Party p : partyList) {
-	    if(partyIndex == p.index) {
-		p.addCreature(c);
-		System.out.println(c.name + " added to " + p.index);
-	    } // end if
-	} // end for
-    } // end addCreature
-
-    public void addTreasure(Scanner s) {
-	Treasure t = new Treasure();
-	int creatureIndex = t.makeTreasure(s);
-	if(creatureIndex == 0) {
-	    unusedElements.add(t);
-	}else{
-	    for(Party p : partyList) {
-		for(Creature c : p.creaturesList) {
-		    if(creatureIndex == c.index) {
-			c.addTreasure(t);
-		    } // end if
-		} // end for
-	    } // end for
-	} // end if-else
-    } // end addTreasure
-    
-    public void addArtifact(Scanner s) {
-	Artifact a = new Artifact();
-	int creatureIndex = a.makeArtifact(s);
-	if(creatureIndex == 0) {
-	    unusedElements.add(a);
-	}else{
-	    for(Party p : partyList) {
-		for(Creature c : p.creaturesList) {
-		    if(creatureIndex == c.index) {
-			c.addArtifact(a);
-		    } // end if
-		} // end for
-	    } // end for
-	} // end if-else
-    } // end addArtifact
-    
+        
     public String searchCave(String searchType, String searchName) {
 	searchName = searchName.trim();
 	searchType = searchType.trim();
@@ -77,20 +28,20 @@ public class Cave {
 	    } // end try-catch
 	    
 	    for(Party p : partyList) {
-		if(i == p.index) {
+		if(i == p.getIndex()) {
 		    result += p.toString();
 		} // end if
 		for(Creature c : p.creaturesList) {
-		    if(i == c.index) {
+		    if(i == c.getIndex()) {
 			result += c.toString();
 		    } // end if
 		    for(Treasure t : c.treasureList) {
-			if(i == t.index) {
+			if(i == t.getIndex()) {
 			    result += t.toString();
 			} // end if
 		    } // end for
 		    for( Artifact a : c.artifactList){
-			if(i == a.index) {
+			if(i == a.getIndex()) {
 			    result += a.toString();
 			} // end if
 		    } // end for
@@ -100,21 +51,20 @@ public class Cave {
 	
 	if(searchType.equalsIgnoreCase("name")) {
 	    for(Party p : partyList) {
-		if(searchName.equalsIgnoreCase(p.name)) {
+		if(searchName.equalsIgnoreCase(p.getName())) {
 		    result += p.toString();
 		} // end if
 		for(Creature c : p.creaturesList) {
-		    System.out.print("|" + c.name + "|");
-		    if(searchName.equalsIgnoreCase(c.name)) {
+		    if(searchName.equalsIgnoreCase(c.getName())) {
 			result += c.toString();
 		    } // end if
 		    for(Treasure t : c.treasureList) {
-			if(searchName.equalsIgnoreCase(t.name)) {
+			if(searchName.equalsIgnoreCase(t.getName())) {
 			    result += t.toString();
 			} // end if
 		    } // end for
 		    for( Artifact a : c.artifactList){
-			if(searchName.equalsIgnoreCase(a.name)) {
+			if(searchName.equalsIgnoreCase(a.getName())) {
 			    result += a.toString();
 			} // end if
 		    } // end for
@@ -124,20 +74,20 @@ public class Cave {
 	
 	if (searchType.equalsIgnoreCase("type")) {
 	    for(Party p : partyList) {
-		if(searchName.equalsIgnoreCase(p.type)) {
+		if(searchName.equalsIgnoreCase(p.getType())) {
 		    result += p.toString();
 		} // end if
 		for(Creature c : p.creaturesList) {
-		    if(searchName.equalsIgnoreCase(c.type)) {
+		    if(searchName.equalsIgnoreCase(c.getType())) {
 			result += c.toString();
 		    } // end if
 		    for(Treasure t : c.treasureList) {
-			if(searchName.equalsIgnoreCase(t.type)) {
+			if(searchName.equalsIgnoreCase(t.getType())) {
 			    result += t.toString();
 			} // end if
 		    } // end for
 		    for( Artifact a : c.artifactList){
-			if(searchName.equalsIgnoreCase(a.type)) {
+			if(searchName.equalsIgnoreCase(a.getType())) {
 			    result += a.toString();
 			} //end if
 		    } // end for

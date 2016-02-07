@@ -15,8 +15,8 @@ public class Party extends CaveElement {
 
     public Party(Scanner s) {
 	s.next();
-	index = s.nextInt();
-	name  = s.next();
+	setIndex(s.nextInt());
+	setName(s.next());
     } //end Party constructor
 
     public void addCreature(Creature c) {
@@ -24,7 +24,7 @@ public class Party extends CaveElement {
     } // end addCreature
 
     public String toString() {
-	String st = name + "\n        Members:\n";
+	String st = getName() + "\n        Members:\n";
 	for(Creature c: creaturesList) {
 	    st += "        " + c + "\n";
 	} // end for
