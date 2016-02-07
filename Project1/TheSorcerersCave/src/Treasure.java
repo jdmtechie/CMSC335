@@ -49,6 +49,9 @@ public class Treasure extends CaveElement {
     }
 
     public String toString() {
-	return getType();
+	if (creatureIndex == 0) {
+	      return String.format ("t:%6d: %s : %6d : %4.1f : %4.1f", getIndex(), getType(),            0, weight, value);
+	}
+	return String.format ("t:%6d: %s : %4.1f : %4.1f", getIndex(), getType(), weight, value);
     } // end toString
 } // end Treasure

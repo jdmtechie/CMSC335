@@ -17,6 +17,7 @@ public class Artifact extends CaveElement {
       setIndex(s.nextInt());
       setType(s.next());
       creatureIndex = s.nextInt();
+      setName(s.next());
       return creatureIndex;
     } // end makeArtifact
     
@@ -29,6 +30,9 @@ public class Artifact extends CaveElement {
     }
 
     public String toString() {
-	return getType();
+	if (creatureIndex == 0) {
+	      return String.format ("a:%6d: %s : %6d : %s", getIndex(), getType(),            0, getName());
+	}
+	return String.format ("a:%6d: %s : %s", getIndex(), getType(), getName());
     } // end toString()
 } // end Artifact

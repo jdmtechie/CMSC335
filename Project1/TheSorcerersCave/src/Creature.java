@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -16,9 +17,12 @@ public class Creature extends CaveElement {
     ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
     
     private int partyIndex;
-    private int empathy;
-    private int fear;
-    private double capacity;
+    private Double empathy;
+    private Double fear;
+    private Double capacity;
+    private Double age;
+    private Double height;
+    private Double weight;
 
     public int makeCreature(Scanner s) {
 	s.next();
@@ -26,9 +30,12 @@ public class Creature extends CaveElement {
 	setType(s.next());
 	setName(s.next());
 	partyIndex = s.nextInt();
-	empathy = s.nextInt();
-	fear = s.nextInt();
-	capacity = s.nextDouble();	
+	empathy = s.nextDouble();
+	fear = s.nextDouble();
+	capacity = s.nextDouble();
+	age = s.nextDouble();
+	height = s.nextDouble();
+	weight = s.nextDouble();
 	return partyIndex;
     } // end makeCreature
     
@@ -48,37 +55,64 @@ public class Creature extends CaveElement {
         this.partyIndex = partyIndex;
     }
 
-    public int getEmpathy() {
+    public Double getEmpathy() {
         return empathy;
     }
 
-    public void setEmpathy(int empathy) {
+    public void setEmpathy(Double empathy) {
         this.empathy = empathy;
     }
 
-    public int getFear() {
+    public Double getFear() {
         return fear;
     }
 
-    public void setFear(int fear) {
+    public void setFear(Double fear) {
         this.fear = fear;
     }
 
-    public double getCapacity() {
+    public Double getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(double capacity) {
+    public void setCapacity(Double capacity) {
         this.capacity = capacity;
     }
 
+    public Double getAge() {
+        return age;
+    }
+
+    public void setAge(Double age) {
+        this.age = age;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
     public String toString() {
-	String st = "        " + getName() + "\n                  Artifacts: ";
+	String st = "     " + getName() + ":";
+	if (partyIndex == 0) {
+	    st += String.format("c:%6d: %s : %s : %6d : %4.1f : %4.1f : %4.1f", getIndex(), getType(), getName(),           0, empathy, fear, capacity);
+	}
+	st += String.format("c:%6d: %s : %s : %4.1f : %4.1f : %4.1f", getIndex(), getType(), getName(), empathy, fear, capacity) + "\n";
 	for (Artifact a: artifactList) 
-	    st += a + " ";
-	st += "\n                  Treasures: ";
+	    st += "           " + a + "\n";
 	for (Treasure t: treasureList) 
-	    st += t + " ";
+	    st += "           " + t + "\n";
 	return st;
     } // end toString
 } // end Creature

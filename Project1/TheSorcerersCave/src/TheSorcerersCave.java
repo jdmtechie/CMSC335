@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JButton;
@@ -35,7 +36,7 @@ public class TheSorcerersCave extends JFrame {
     public TheSorcerersCave() {
 	System.out.println("In Constructor");
 	setTitle("The Sorcerer's Cave");
-	setSize(600, 800);
+	setSize(600, 400);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setVisible(true);
 
@@ -43,12 +44,12 @@ public class TheSorcerersCave extends JFrame {
 	add(jsp, BorderLayout.CENTER);
 
 	JLabel jlSearch = new JLabel("Search Term:");
-	JTextField jtf = new JTextField(10);
+	JTextField jtfSearch = new JTextField(10);
 	JLabel jlType = new JLabel("Search Type:"); 
-	JComboBox<String> jCombo = new JComboBox<String>();
-	jCombo.addItem("Index");
-	jCombo.addItem("Type");
-	jCombo.addItem("Name");
+	JComboBox<String> jComboSearch = new JComboBox<String>();
+	jComboSearch.addItem("Index");
+	jComboSearch.addItem("Type");
+	jComboSearch.addItem("Name");
 
 	JButton jbRead = new JButton("Open");
 	jbRead.addActionListener(
@@ -56,18 +57,35 @@ public class TheSorcerersCave extends JFrame {
 		);
 	JButton jbSearch = new JButton("Search");
 	jbSearch.addActionListener(
-		ae -> {search((String)jCombo.getSelectedItem(), jtf.getText());}
+		ae -> {search((String)jComboSearch.getSelectedItem(), jtfSearch.getText());}
 		);
-
-	JPanel jp = new JPanel();
-	jp.add(jbRead);
-	jp.add(jlSearch);
-	jp.add(jtf);
-	jp.add(jlType);
-	jp.add(jCombo);
-	jp.add(jbSearch);
-
-	add(jp, BorderLayout.PAGE_START);
+	
+	JPanel jpUpper = new JPanel();
+	jpUpper.add(jbRead);
+	jpUpper.add(jlSearch);
+	jpUpper.add(jtfSearch);
+	jpUpper.add(jlType);
+	jpUpper.add(jComboSearch);
+	jpUpper.add(jbSearch);
+	add(jpUpper, BorderLayout.PAGE_START);
+	
+	
+	JComboBox<String> jComboCSort = new JComboBox<String>();
+	jComboCSort.addItem("Name");
+	jComboCSort.addItem("Age");
+	jComboCSort.addItem("Height");
+	jComboCSort.addItem("Weight");
+	
+	JButton jbCSort = new JButton("Sort Creatures");
+	jbCSort.addActionListener(
+		ae -> {sortCreature((String)jComboCSort.getSelectedItem());}
+		);
+	
+	
+	JPanel jpLower = new JPanel();
+	jpLower.add(jbCSort);
+	jpLower.add(jComboCSort);
+	add(jpLower, BorderLayout.WEST);
 
 	validate();
     } // end TheSorcerersCave constructor
@@ -156,6 +174,40 @@ public class TheSorcerersCave extends JFrame {
 	jta.append("Display button pressed\n");
 	jta.setText(cave.toString());
     } // end displayCave
+    
+    public void sortCreature(String s) {
+	switch (s) {
+	case "Name": {
+	    for(Party p : cave.partyList) {
+		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getName().compareTo(c2.getName()));
+	    }
+	    break;
+	}
+	case "Age" : {
+	    for(Party p : cave.partyList) {
+		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getAge().compareTo(c2.getAge()));
+	    }
+	    break;
+	}
+	case "Height": {
+	    for(Party p : cave.partyList) {
+		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getHeight().compareTo(c2.getHeight()));
+	    }
+	    break;
+	}
+	case "Weight": {
+	    for(Party p : cave.partyList) {
+		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getWeight().compareTo(c2.getWeight()));
+	    }
+	    break;
+	}
+	default:
+	    break;
+	}
+	
+//	cave.sortCreature(s);
+	displayCave();
+    }
 
     public void search(String searchType, String searchName) {
 	jta.setText(String.format("Searching %s for: %s\n", searchType, searchName));

@@ -24,9 +24,9 @@ public class Party extends CaveElement {
     } // end addCreature
 
     public String toString() {
-	String st = getName() + "\n        Members:\n";
+	String st = getName() + "\n    Members:\n";
 	for(Creature c: creaturesList) {
-	    st += "        " + c + "\n";
+	    st += "    " + c + "\n";
 	} // end for
 	return st;
     } // end toString

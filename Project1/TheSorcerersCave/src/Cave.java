@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * File: TheSorcerersCave.java
@@ -101,6 +102,11 @@ public class Cave {
 	return result + "\nSearch Complete.";
     } // end searchCave
 
+//    public void sortCreature(String s) {
+//	for(Party p : partyList) {
+//	    Collections.sort(p.creaturesList, Creature.cNameComp);
+//	}
+//    }
     public String toString() {
 	String st = "Cave.toString:\nThe Parties\n";
 	for(Party p: partyList) 
