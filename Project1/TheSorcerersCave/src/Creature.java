@@ -10,9 +10,6 @@ public class Creature extends CaveElement {
     ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
     ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
     
-    int index = 0;
-    String type;
-    String name;
     int partyIndex;
     int empathy;
     int fear;

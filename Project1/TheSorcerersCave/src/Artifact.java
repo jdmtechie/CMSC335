@@ -6,9 +6,6 @@ import java.util.Scanner;
  */
 public class Artifact extends CaveElement {
     
-    int index;
-    String type;
-    String name = null;
     int creatureIndex;
     
     public int makeArtifact(Scanner s) {

@@ -6,9 +6,6 @@ import java.util.Scanner;
  */
 public class Treasure extends CaveElement {
 
-    int index;
-    String type;
-    String name = null;
     int creatureIndex;
     double weight;
     double value;

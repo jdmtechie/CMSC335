@@ -9,10 +9,6 @@ import java.util.Scanner;
 public class Party extends CaveElement {
     
     ArrayList<Creature> creaturesList = new ArrayList<Creature>();
-    
-    int index;
-    String name;
-    String type = null;
 
     public Party(Scanner s) {
 	s.next();

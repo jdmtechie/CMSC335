@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 /**
  * @author JD
@@ -13,23 +11,7 @@ public class Cave {
     
         
     public String searchCave(String searchType, String searchName) {
-	
-	
-//	String result = "";
-//	for(Party p : partyList) {
-//	    
-//	    for(Creature c : p.creaturesList) {
-//		for(Treasure t : c.treasureList) {
-//		    if(t.index == Integer.valueOf(searchName)) {
-//			result += t.toString();
-//		    }
-//		    if(t.)
-//		}
-//		for( Artifact a : c.artifactList){
-//		    
-//		}
-//	    }
-//	}
+
 	return "\nSearch Complete.";
     }
     

@@ -86,12 +86,13 @@ public class TheSorcerersCave extends JFrame {
 	
 	Scanner scan = null;
 	try {
+	    Scanner inLine = null;
 	    scan = new Scanner(jfc.getSelectedFile());
 	    scan.skip("//");
 	    while(scan.hasNextLine()) {
 		String line = scan.nextLine().trim();
 		if(line.length() == 0) continue;
-		Scanner inLine = new Scanner(line).useDelimiter("\\s*:\\s*");
+		inLine = new Scanner(line).useDelimiter("\\s*:\\s*");
 		switch(line.charAt(0)){
 		case 'p':
 		case 'P': addParty(inLine); break;
@@ -104,6 +105,7 @@ public class TheSorcerersCave extends JFrame {
                 default: break;
 		} // end switch 
 	    } // end while
+	    inLine.close();
 	}catch(FileNotFoundException e) {
 	    JOptionPane.showMessageDialog(null, "File not found.");
 	} // end try-catch
