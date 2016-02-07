@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
 /**
- * @author JD
- *
+ * File: TheSorcerersCave.java
+ * Date: 24 Jan 2016
+ * @author James Moore
+ * Purpose: Develop a game called The Sorcerers Cave 
  */
+
+//Artifacts are held by creatures
 public class Artifact extends CaveElement {
     
-    int index;
-    String type;
-    String name = null;
     int creatureIndex;
     
     public int makeArtifact(Scanner s) {

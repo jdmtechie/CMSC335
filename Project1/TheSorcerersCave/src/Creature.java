@@ -2,17 +2,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author JD
- *
+ * File: TheSorcerersCave.java
+ * Date: 24 Jan 2016
+ * @author James Moore
+ * Purpose: Develop a game called The Sorcerers Cave 
  */
+
+//Creatures make up parties in the cave and hold artifacts and 
+// treasure
 public class Creature extends CaveElement {
     
     ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
     ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
     
-    int index = 0;
-    String type;
-    String name;
     int partyIndex;
     int empathy;
     int fear;
@@ -29,10 +31,6 @@ public class Creature extends CaveElement {
 	capacity = s.nextDouble();	
 	return partyIndex;
     } // end makeCreature
-    
-    public String getName() {
-	return this.name;
-    }
     
     public void addTreasure(Treasure t) {
 	treasureList.add(t);

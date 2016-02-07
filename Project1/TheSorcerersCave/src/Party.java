@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author JD
- *
+ * File: TheSorcerersCave.java
+ * Date: 24 Jan 2016
+ * @author James Moore
+ * Purpose: Develop a game called The Sorcerers Cave 
  */
 
+//Parties contain creatures who are in the cave
 public class Party extends CaveElement {
     
     ArrayList<Creature> creaturesList = new ArrayList<Creature>();
-    
-    int index;
-    String name;
-    String type = null;
 
     public Party(Scanner s) {
 	s.next();

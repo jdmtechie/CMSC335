@@ -17,8 +17,9 @@ import javax.swing.JTextField;
  * Date: 24 Jan 2016
  * @author James Moore
  * Purpose: Develop a game called The Sorcerers Cave 
- *
  */
+
+//Starts the game and maintains the GUI
 public class TheSorcerersCave extends JFrame {
 
     private static final long serialVersionUID = 1980L;
