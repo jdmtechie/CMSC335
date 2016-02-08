@@ -3,6 +3,9 @@ import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -16,9 +19,14 @@ import javax.swing.JTextField;
 
 /**
  * File: TheSorcerersCave.java
- * Date: 24 Jan 2016
+ * Date: 7 Feb 2016
  * @author James Moore
  * Purpose: Develop a game called The Sorcerers Cave 
+ * 	Improve IAW Project 2 instructions
+ * 	-Use HashMap data structure for caveElement linking during readFile
+ * 	-Add Sort methods for Creatures by Name, Age, Weight, Height
+ * 	-Add Sort methods for Treasure by Weight and Value
+ * 	-Incorporate sorting into GUI
  */
 
 //Starts the game and maintains the GUI
@@ -28,21 +36,20 @@ public class TheSorcerersCave extends JFrame {
     
     JTextArea jta = new JTextArea();
     JFileChooser jfc = new JFileChooser(".");
-    
     HashMap<Integer, CaveElement> readFileHM;
-    
     Cave cave = new Cave();
 
     public TheSorcerersCave() {
 	System.out.println("In Constructor");
 	setTitle("The Sorcerer's Cave");
-	setSize(600, 400);
+	setSize(800, 400);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setVisible(true);
 
 	JScrollPane jsp = new JScrollPane(jta);
 	add(jsp, BorderLayout.CENTER);
 
+	//File and Search functions
 	JLabel jlSearch = new JLabel("Search Term:");
 	JTextField jtfSearch = new JTextField(10);
 	JLabel jlType = new JLabel("Search Type:"); 
@@ -55,41 +62,63 @@ public class TheSorcerersCave extends JFrame {
 	jbRead.addActionListener(
 		ae -> {readFile();}
 		);
+	JButton jbDisplay = new JButton("Display Cave");
+	jbDisplay.addActionListener(
+		ae -> {displayCave();}
+		);
 	JButton jbSearch = new JButton("Search");
 	jbSearch.addActionListener(
 		ae -> {search((String)jComboSearch.getSelectedItem(), jtfSearch.getText());}
 		);
 	
-	JPanel jpUpper = new JPanel();
-	jpUpper.add(jbRead);
-	jpUpper.add(jlSearch);
-	jpUpper.add(jtfSearch);
-	jpUpper.add(jlType);
-	jpUpper.add(jComboSearch);
-	jpUpper.add(jbSearch);
-	add(jpUpper, BorderLayout.PAGE_START);
+	JPanel jpTop = new JPanel();
+	jpTop.add(jbRead);
+	jpTop.add(jbDisplay);
+	jpTop.add(jlSearch);
+	jpTop.add(jtfSearch);
+	jpTop.add(jlType);
+	jpTop.add(jComboSearch);
+	jpTop.add(jbSearch);
+	add(jpTop, BorderLayout.PAGE_START);
 	
-	
+	//Sorting functions
+	JLabel jlCSort = new JLabel("Sort Creatures");
 	JComboBox<String> jComboCSort = new JComboBox<String>();
 	jComboCSort.addItem("Name");
 	jComboCSort.addItem("Age");
 	jComboCSort.addItem("Height");
 	jComboCSort.addItem("Weight");
 	
+	JLabel jlTSort = new JLabel("Sort Treasures");
+	JComboBox<String> jComboTSort = new JComboBox<String>();
+	jComboTSort.addItem("Weight");
+	jComboTSort.addItem("Value");
+		
 	JButton jbCSort = new JButton("Sort Creatures");
 	jbCSort.addActionListener(
 		ae -> {sortCreature((String)jComboCSort.getSelectedItem());}
 		);
+	JButton jbTSort = new JButton("Sort Treasure");
+	jbCSort.addActionListener(
+		ae -> {sortTreasure((String)jComboTSort.getSelectedItem());}
+		);
 	
+	JPanel jpWest = new JPanel();
+	jpWest.setLayout(new BoxLayout(jpWest, BoxLayout.Y_AXIS));
+	jpWest.add(jlCSort);
+	jpWest.add(jComboCSort);
+	jpWest.add(jbCSort);
+	jpWest.add(jlTSort);
+	jpWest.add(jComboTSort);
+	jpWest.add(jbTSort);
+	jpWest.add(Box.createVerticalGlue());
+	add(jpWest, BorderLayout.WEST);
 	
-	JPanel jpLower = new JPanel();
-	jpLower.add(jbCSort);
-	jpLower.add(jComboCSort);
-	add(jpLower, BorderLayout.WEST);
-
 	validate();
     } // end TheSorcerersCave constructor
 
+    // Browse for data file to read starting at "." and 
+    // instantiate HashMap for more efficient cave population
     public void readFile() {
 	readFileHM = new HashMap<Integer, CaveElement>();
 	jta.append ("Read File button pressed\n");
@@ -175,39 +204,61 @@ public class TheSorcerersCave extends JFrame {
 	jta.setText(cave.toString());
     } // end displayCave
     
+    // Iterate through the partyList to find creatures and sort by given variable
     public void sortCreature(String s) {
 	switch (s) {
 	case "Name": {
 	    for(Party p : cave.partyList) {
 		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getName().compareTo(c2.getName()));
-	    }
+	    } // end for
 	    break;
-	}
+	} // end case
 	case "Age" : {
 	    for(Party p : cave.partyList) {
 		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getAge().compareTo(c2.getAge()));
-	    }
+	    } // end for
 	    break;
-	}
+	} // end case
 	case "Height": {
 	    for(Party p : cave.partyList) {
 		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getHeight().compareTo(c2.getHeight()));
-	    }
+	    } // end for
 	    break;
-	}
+	} // end case
 	case "Weight": {
 	    for(Party p : cave.partyList) {
 		Collections.sort(p.creaturesList, (Creature c1, Creature c2) -> c1.getWeight().compareTo(c2.getWeight()));
-	    }
+	    } // end for
 	    break;
-	}
+	} // end case
 	default:
 	    break;
-	}
-	
-//	cave.sortCreature(s);
+	} // end case
 	displayCave();
-    }
+    } // end sortCreature
+    
+    // Iterate through each Creature's treasureList and sort by given variable
+    public void sortTreasure(String s) {
+	switch (s) {
+	case "Weight": {
+	    for(Party p : cave.partyList) {
+		for(Creature c : p.creaturesList) {
+		    Collections.sort(c.treasureList, (Treasure t1, Treasure t2) -> t1.getWeight().compareTo(t2.getWeight()));
+		} // end for
+	    } // end for
+	    break;
+	} // end case
+	case "Value" : {
+	    for(Party p : cave.partyList) {
+		for(Creature c : p.creaturesList) {
+		    Collections.sort(c.treasureList, (Treasure t1, Treasure t2) -> t1.getValue().compareTo(t2.getValue()));
+		} // end for
+	    } // end for
+	    break;
+	} // end case
+	} // end switch
+	displayCave();
+    } // end sortTreasure
 
     public void search(String searchType, String searchName) {
 	jta.setText(String.format("Searching %s for: %s\n", searchType, searchName));

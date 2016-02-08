@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * File: TheSorcerersCave.java
- * Date: 24 Jan 2016
+ * Date: 7 Feb 2016
  * @author James Moore
  * Purpose: Develop a game called The Sorcerers Cave 
  */
@@ -14,7 +14,53 @@ public class Cave {
     ArrayList<Party> partyList = new ArrayList<Party>();
     ArrayList<CaveElement> unusedElements = new ArrayList<CaveElement>();
     
-        
+    public void addParty(Scanner s) {
+	Party p = new Party(s);
+	partyList.add(p);
+    } // end addParty
+    
+    public void addCreature(Scanner s) {
+	Creature c = new Creature();
+	int partyIndex = c.makeCreature(s);
+	for(Party p : partyList) {
+	    if(partyIndex == p.getIndex()) {
+		p.addCreature(c);
+	    } // end if
+	} // end for
+    } // end addCreature
+
+    public void addTreasure(Scanner s) {
+	Treasure t = new Treasure();
+	int creatureIndex = t.makeTreasure(s);
+	if(creatureIndex == 0) {
+	    unusedElements.add(t);
+	}else{
+	    for(Party p : partyList) {
+		for(Creature c : p.creaturesList) {
+		    if(creatureIndex == c.getIndex()) {
+			c.addTreasure(t);
+		    } // end if
+		} // end for
+	    } // end for
+	} // end if-else
+    } // end addTreasure
+    
+    public void addArtifact(Scanner s) {
+	Artifact a = new Artifact();
+	int creatureIndex = a.makeArtifact(s);
+	if(creatureIndex == 0) {
+	    unusedElements.add(a);
+	}else{
+	    for(Party p : partyList) {
+		for(Creature c : p.creaturesList) {
+		    if(creatureIndex == c.getIndex()) {
+			c.addArtifact(a);
+		    } // end if
+		} // end for
+	    } // end for
+	} // end if-else
+    } // end addArtifact
+    
     public String searchCave(String searchType, String searchName) {
 	searchName = searchName.trim();
 	searchType = searchType.trim();
@@ -56,6 +102,7 @@ public class Cave {
 		    result += p.toString();
 		} // end if
 		for(Creature c : p.creaturesList) {
+		    System.out.print("|" + c.getName() + "|");
 		    if(searchName.equalsIgnoreCase(c.getName())) {
 			result += c.toString();
 		    } // end if
@@ -102,11 +149,6 @@ public class Cave {
 	return result + "\nSearch Complete.";
     } // end searchCave
 
-//    public void sortCreature(String s) {
-//	for(Party p : partyList) {
-//	    Collections.sort(p.creaturesList, Creature.cNameComp);
-//	}
-//    }
     public String toString() {
 	String st = "Cave.toString:\nThe Parties\n";
 	for(Party p: partyList) 

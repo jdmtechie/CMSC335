@@ -2,17 +2,17 @@ import java.util.Scanner;
 
 /**
  * File: TheSorcerersCave.java
- * Date: 24 Jan 2016
+ * Date: 7 Feb 2016
  * @author James Moore
  * Purpose: Develop a game called The Sorcerers Cave 
  */
 
-//Treasure is heald by creatures and has a weight and value
+//Treasure is held by creatures and has a weight and value
 public class Treasure extends CaveElement {
 
     private int creatureIndex;
-    private double weight;
-    private double value;
+    private Double weight;
+    private Double value;
     
     public int makeTreasure(Scanner s) {
       s.next();
@@ -32,7 +32,7 @@ public class Treasure extends CaveElement {
         this.creatureIndex = creatureIndex;
     }
 
-    public double getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
@@ -40,7 +40,7 @@ public class Treasure extends CaveElement {
         this.weight = weight;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 

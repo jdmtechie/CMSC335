@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 
 /**
  * File: TheSorcerersCave.java
- * Date: 24 Jan 2016
+ * Date: 7 Feb 2016
  * @author James Moore
  * Purpose: Develop a game called The Sorcerers Cave 
  */
