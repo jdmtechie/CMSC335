@@ -30,7 +30,6 @@ public class TheSorcerersCave extends JFrame {
     Cave cave = new Cave();
 
     public TheSorcerersCave() {
-	System.out.println("In Constructor");
 	setTitle("The Sorcerer's Cave");
 	setSize(600, 800);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);

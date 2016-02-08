@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -26,7 +25,6 @@ public class Cave {
 	for(Party p : partyList) {
 	    if(partyIndex == p.index) {
 		p.addCreature(c);
-		System.out.println(c.name + " added to " + p.index);
 	    } // end if
 	} // end for
     } // end addCreature
