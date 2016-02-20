@@ -22,7 +22,8 @@ public class Creature extends CaveElement {
     private Double age;
     private Double height;
     private Double weight;
-
+    private boolean busyFlag;
+    
     public int makeCreature(Scanner s) {
 	s.next();
 	setIndex(s.nextInt());
@@ -102,7 +103,15 @@ public class Creature extends CaveElement {
         this.weight = weight;
     }
 
-    public String toString() {
+    public boolean isBusyFlag() {
+		return busyFlag;
+	}
+
+	public void setBusyFlag(boolean busyFlag) {
+		this.busyFlag = busyFlag;
+	}
+
+	public String toString() {
 	String st = "     " + getName() + ":";
 	if (partyIndex == 0) {
 	    st += String.format("c:%6d: %s : %s : %6d : %4.1f : %4.1f : %4.1f", getIndex(), getType(), getName(),           0, empathy, fear, capacity);
