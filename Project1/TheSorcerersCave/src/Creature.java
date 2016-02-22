@@ -14,6 +14,7 @@ public class Creature extends CaveElement {
     
     ArrayList<Treasure> treasureList = new ArrayList<Treasure>();
     ArrayList<Artifact> artifactList = new ArrayList<Artifact>();
+    ArrayList<Job> jobList = new ArrayList<Job>();
     
     private int partyIndex;
     private Double empathy;
@@ -22,6 +23,7 @@ public class Creature extends CaveElement {
     private Double age;
     private Double height;
     private Double weight;
+    private Boolean busyFlag = false;
 
     public int makeCreature(Scanner s) {
 	s.next();
@@ -45,6 +47,10 @@ public class Creature extends CaveElement {
     public void addArtifact(Artifact a) {
 	artifactList.add(a);
     } // end addArtifact
+    
+    public void addJob(Job j) {
+    	jobList.add(j);
+    } // end addJob
     
     public int getPartyIndex() {
         return partyIndex;
@@ -102,16 +108,27 @@ public class Creature extends CaveElement {
         this.weight = weight;
     }
 
-    public String toString() {
+    public Boolean isBusyFlag() {
+		return busyFlag;
+	}
+
+	public void setBusyFlag(Boolean busyFlag) {
+		this.busyFlag = busyFlag;
+	}
+
+	public String toString() {
 	String st = "     " + getName() + ":";
 	if (partyIndex == 0) {
-	    st += String.format("c:%6d: %s : %s : %6d : %4.1f : %4.1f : %4.1f", getIndex(), getType(), getName(),           0, empathy, fear, capacity);
+	    st += String.format("c:%6d: %s : %s : a-%4.1f : h-%4.1f : w-%4.1f : e-%4.1f : f-%4.1f : c-%4.1f", getIndex(), getType(), getName(), age, height, weight,           0, empathy, fear, capacity);
 	}
-	st += String.format("c:%6d: %s : %s : %4.1f : %4.1f : %4.1f", getIndex(), getType(), getName(), empathy, fear, capacity) + "\n";
+	st += String.format("c:%6d: %s : %s : a-%4.1f : h-%4.1f : w-%4.1f : e-%4.1f : f-%4.1f : c-%4.1f", getIndex(), getType(), getName(), age, height, weight, empathy, fear, capacity) + "\n";
 	for (Artifact a: artifactList) 
 	    st += "           " + a + "\n";
 	for (Treasure t: treasureList) 
 	    st += "           " + t + "\n";
+	for (Job j : jobList) {
+		st += "           " + j + "\n";
+	}
 	return st;
     } // end toString
 } // end Creature

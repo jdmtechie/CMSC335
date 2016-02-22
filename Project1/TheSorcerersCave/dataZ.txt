@@ -1,0 +1,218 @@
+// sample data file for CMSC 335, Summer 2013
+// Nicholas Duchon
+// Jan 23, 2012
+// May 22, 2013
+
+// Parties format:
+//    p:<index>:<name>
+p : 10000 : Association
+p : 10001 : Clan
+p : 10002 : Crew
+p : 10003 : Congregation
+p : 10004 : Gang
+
+// Creatures format:
+//    c:<index>:<type>:<name>:<party>:<empathy>:<fear>:<carrying capacity>[:<age>:<height>:<weight>]
+c : 20000 :      Gnome :   Giovanni : 10000 :   8 :  88 : 151 :  324.36 :   60.62 :  251.54
+c : 20001 :     Dragon :    Florine : 10000 :  34 :   9 : 240 :  188.46 :  300.92 :  879.66
+c : 20002 :       Yeti :     Elwood : 10000 :  30 :   7 : 233 :   17.52 :  284.96 :  715.69
+c : 20003 :      Gnome :        Ewa : 10000 :  47 :  89 : 271 :  362.23 :  318.94 :  414.87
+c : 20004 :      Gnome :    Lorenzo : 10001 :   7 :  73 : 254 :  185.90 :  152.62 :  709.41
+c : 20005 :    Banshee :     Hertha : 10001 :  38 :  55 : 184 :  112.24 :   43.91 :  299.58
+c : 20006 :     Priest :     Ismael : 10001 :  94 :  82 :  21 :  475.62 :  138.73 :  797.24
+c : 20007 :      Woman :     Lannie : 10001 :  91 :  81 :  20 :  339.62 :  250.49 :  281.35
+c : 20008 :      Pixie :     Antone : 10002 :  19 :  37 : 154 :  487.00 :  132.79 :  987.11
+c : 20009 :      Troll :      Merle : 10002 :   5 :  92 :  86 :  138.02 :  178.38 :  591.77
+c : 20010 :     Dragon :  Lawerence : 10002 :  26 :  44 : 271 :  250.39 :  180.71 :  263.31
+c : 20011 :        Elf :   Jermaine : 10003 :  81 :  89 :  98 :  500.07 :   52.32 :   11.80
+c : 20012 :     Dragon :   Mauricio : 10003 :  74 :  92 : 294 :  221.64 :  317.75 :  605.46
+c : 20013 :     Priest :     Judson : 10003 :  46 :  47 :  94 :  432.59 :   38.74 :  247.72
+c : 20014 :       Yeti :       Tena : 10003 :  92 :  49 : 285 :   77.78 :  112.75 :  553.28
+c : 20015 :     Kobold :      Rhett : 10004 :  36 :  41 : 125 :   89.31 :  117.75 :  121.16
+c : 20016 :      Troll :     Renata : 10004 :  24 :  35 :  46 :   46.34 :  218.11 :  917.34
+
+// Treasures format:
+//    t:<index>:<type>:<creature>:<weight>:<value>
+// creature = 0 means noone is carrying that treasure at the moment
+t : 30000 :           Panda : 20000 : 257.5 :    30
+t : 30001 :           Chest : 20001 : 239.3 :    25
+t : 30002 :           Dinar : 20001 : 122.0 :    27
+t : 30003 :     Krugerrands : 20002 : 173.5 :    17
+t : 30004 :       Doubloons : 20002 :  26.4 :    78
+t : 30005 :           Panda : 20003 :  14.8 :    93
+t : 30006 :     Kijang Emas : 20003 :  84.9 :    18
+t : 30007 :           Dinar : 20004 : 154.8 :    24
+t : 30008 :           Dinar : 20004 : 102.0 :     3
+t : 30009 :         Vreneli : 20005 : 196.9 :    90
+t : 30010 :        Guilders : 20005 : 233.1 :    79
+t : 30011 :         Vreneli : 20006 : 117.5 :    16
+t : 30012 :      Chervonets : 20007 :  69.1 :     3
+t : 30013 :         Vreneli : 20008 :  29.3 :    23
+t : 30014 :            Gems : 20008 :  90.9 :    79
+t : 30015 :          Silver : 20009 :  84.5 :    66
+t : 30016 :    Gold Nuggets : 20009 : 255.6 :    60
+t : 30017 :         Vreneli : 20010 : 197.2 :    79
+t : 30018 :      Britannias : 20011 :  17.3 :    98
+t : 30019 :       Doubloons : 20011 : 110.8 :    11
+t : 30020 :          Silver : 20012 : 177.8 :    26
+t : 30021 :     Kijang Emas : 20012 : 144.7 :    50
+t : 30022 :        Guildens : 20013 : 257.7 :    62
+t : 30023 :            Gold : 20014 : 221.4 :    95
+t : 30024 :           Panda : 20014 :  30.3 :    88
+t : 30025 :         Florins : 20015 :  71.6 :    73
+t : 30026 :           Panda : 20015 : 209.2 :    31
+t : 30027 :     Krugerrands : 20016 :  45.1 :    74
+t : 30028 :     Kijang Emas : 20016 : 218.6 :    63
+
+// Artifacts format:
+//    a:<index>:<type>:<creature>[:<name>]
+a : 40000 :   Stone : 20000 : Cassiterite
+a : 40001 :  Potion : 20000 : Divine Restoration
+a : 40002 :    Wand : 20000 : Wand
+a : 40003 :  Weapon : 20000 : Epee
+a : 40004 :   Stone : 20001 : Olivine
+a : 40005 :  Potion : 20001 : Water Resistance
+a : 40006 :  Potion : 20001 : Cure Weakness
+a : 40007 :    Wand : 20001 : Wand
+a : 40008 :    Wand : 20001 : Wand
+a : 40009 :  Weapon : 20001 : Repeating crossbow
+a : 40010 :  Weapon : 20001 : Lucerne hammer
+a : 40011 :   Stone : 20002 : Axinite
+a : 40012 :   Stone : 20002 : Axinite
+a : 40013 :  Potion : 20002 : Slaying Potion
+a : 40014 :    Wand : 20002 : Wand
+a : 40015 :  Weapon : 20002 : Longsword
+a : 40016 :  Weapon : 20002 : Zweihander
+a : 40017 :   Stone : 20003 : Pyrite
+a : 40018 :   Stone : 20003 : Zircon
+a : 40019 :   Stone : 20003 : Variscite
+a : 40020 :  Potion : 20003 : Freezing
+a : 40021 :  Potion : 20003 : Cure Insanity
+a : 40022 :    Wand : 20003 : Wand
+a : 40023 :    Wand : 20003 : Wand
+a : 40024 :  Weapon : 20003 : Scimitar
+a : 40025 :  Weapon : 20003 : Arbalest
+a : 40026 :   Stone : 20004 : Emerald
+a : 40027 :   Stone : 20004 : Cassiterite
+a : 40028 :  Potion : 20004 : Stone Skin
+a : 40029 :  Potion : 20004 : Preservation
+a : 40030 :    Wand : 20004 : Wand
+a : 40031 :  Weapon : 20004 : Lucerne hammer
+a : 40032 :  Weapon : 20004 : Claymore
+a : 40033 :  Weapon : 20004 : Repeating crossbow
+a : 40034 :   Stone : 20005 : Zircon
+a : 40035 :   Stone : 20005 : Tourmaline
+a : 40036 :   Stone : 20005 : Ruby
+a : 40037 :  Potion : 20005 : Heroism
+a : 40038 :    Wand : 20005 : Wand
+a : 40039 :  Weapon : 20005 : Dirk
+a : 40040 :   Stone : 20006 : Amethyst
+a : 40041 :   Stone : 20006 : Agate
+a : 40042 :  Potion : 20006 : Endurance Boost
+a : 40043 :    Wand : 20006 : Wand
+a : 40044 :    Wand : 20006 : Wand
+a : 40045 :  Weapon : 20006 : Epee
+a : 40046 :  Weapon : 20006 : Scimitar
+a : 40047 :   Stone : 20007 : Malachite
+a : 40048 :  Potion : 20007 : Divine Power
+a : 40049 :  Potion : 20007 : Magic Upgrade
+a : 40050 :    Wand : 20007 : Wand
+a : 40051 :  Weapon : 20007 : Shortsword
+a : 40052 :   Stone : 20008 : Quartz
+a : 40053 :  Potion : 20008 : Preservation
+a : 40054 :    Wand : 20008 : Wand
+a : 40055 :  Weapon : 20008 : War hammer
+a : 40056 :  Weapon : 20008 : Crossbow
+a : 40057 :  Weapon : 20008 : Battle axe
+a : 40058 :   Stone : 20009 : Dioptase
+a : 40059 :   Stone : 20009 : Lapis-lazuli
+a : 40060 :  Potion : 20009 : Freezing
+a : 40061 :  Potion : 20009 : Cure Insanity
+a : 40062 :    Wand : 20009 : Wand
+a : 40063 :  Weapon : 20009 : Zweihander
+a : 40064 :  Weapon : 20009 : Throwing Spear
+a : 40065 :   Stone : 20010 : Tanzanite
+a : 40066 :   Stone : 20010 : Chalcedony
+a : 40067 :  Potion : 20010 : Remove Curse
+a : 40068 :    Wand : 20010 : Wand
+a : 40069 :    Wand : 20010 : Wand
+a : 40070 :  Weapon : 20010 : Morning star
+a : 40071 :  Weapon : 20010 : Sabre
+a : 40072 :   Stone : 20011 : Iolite
+a : 40073 :   Stone : 20011 : Diopside
+a : 40074 :   Stone : 20011 : Diopside
+a : 40075 :  Potion : 20011 : Intellect Boost
+a : 40076 :  Potion : 20011 : Cure Wounds
+a : 40077 :    Wand : 20011 : Wand
+a : 40078 :    Wand : 20011 : Wand
+a : 40079 :  Weapon : 20011 : Zweihander
+a : 40080 :  Weapon : 20011 : Sabre
+a : 40081 :   Stone : 20012 : Danburite
+a : 40082 :   Stone : 20012 : Hematite
+a : 40083 :  Potion : 20012 : Swift Potion
+a : 40084 :  Potion : 20012 : Divine Restoration
+a : 40085 :    Wand : 20012 : Wand
+a : 40086 :    Wand : 20012 : Wand
+a : 40087 :  Weapon : 20012 : Stiletto
+a : 40088 :  Weapon : 20012 : Shortsword
+a : 40089 :   Stone : 20013 : Tanzanite
+a : 40090 :  Potion : 20013 : Intellect Boost
+a : 40091 :  Potion : 20013 : Cure Paralysis
+a : 40092 :    Wand : 20013 : Wand
+a : 40093 :    Wand : 20013 : Wand
+a : 40094 :  Weapon : 20013 : Zweihander
+a : 40095 :  Weapon : 20013 : Arbalest
+a : 40096 :   Stone : 20014 : Hambergite
+a : 40097 :  Potion : 20014 : Divine Power
+a : 40098 :  Potion : 20014 : Might Boost
+a : 40099 :    Wand : 20014 : Wand
+a : 40100 :    Wand : 20014 : Wand
+a : 40101 :  Weapon : 20014 : Maul
+a : 40102 :  Weapon : 20014 : Broadsword
+a : 40103 :  Weapon : 20014 : Maul
+a : 40104 :   Stone : 20015 : Danburite
+a : 40105 :   Stone : 20015 : Feldspar
+a : 40106 :   Stone : 20015 : Diamond
+a : 40107 :  Potion : 20015 : Slaying Potion
+a : 40108 :    Wand : 20015 : Wand
+a : 40109 :  Weapon : 20015 : Dagger
+a : 40110 :  Weapon : 20015 : Quarterstaff
+a : 40111 :   Stone : 20016 : Emerald
+a : 40112 :   Stone : 20016 : Chrysoprase
+a : 40113 :   Stone : 20016 : Turquoise
+a : 40114 :  Potion : 20016 : Cure Disease
+a : 40115 :    Wand : 20016 : Wand
+a : 40116 :  Weapon : 20016 : Longsword
+a : 40117 :  Weapon : 20016 : Throwing Spear
+
+// Jobs for creatures
+// measure time in seconds
+//    j:<index>:<name>:<creature index>:<time>[:<required artifact:type>:<number>]*
+j : 50000 :           Find Water : 20000 :   4.00 : Stone : 3 : Potions : 2 : Wands : 1 : Weapons : 0
+j : 50001 :             Get Help : 20000 :   5.00 : Stone : 1 : Potions : 2 : Wands : 0 : Weapons : 2
+j : 50002 :            Find Food : 20001 :   8.00 : Stone : 1 : Potions : 1 : Wands : 1 : Weapons : 0
+j : 50003 :                Swing : 20002 :  10.00 : Stone : 3 : Potions : 2 : Wands : 0 : Weapons : 0
+j : 50004 :            Find Food : 20002 :   4.00 : Stone : 3 : Potions : 1 : Wands : 0 : Weapons : 0
+j : 50005 :                  Hit : 20003 :   5.00 : Stone : 0 : Potions : 0 : Wands : 1 : Weapons : 1
+j : 50006 :           Find Water : 20003 :   7.00 : Stone : 2 : Potions : 2 : Wands : 0 : Weapons : 2
+j : 50007 :                Swing : 20004 :   2.00 : Stone : 3 : Potions : 2 : Wands : 1 : Weapons : 0
+j : 50008 :                  Hit : 20004 :   4.00 : Stone : 2 : Potions : 0 : Wands : 1 : Weapons : 2
+j : 50009 :            Find Food : 20005 :   8.00 : Stone : 3 : Potions : 1 : Wands : 1 : Weapons : 0
+j : 50010 :                  Hit : 20006 :   8.00 : Stone : 0 : Potions : 2 : Wands : 1 : Weapons : 1
+j : 50011 :                  Hit : 20006 :   9.00 : Stone : 0 : Potions : 2 : Wands : 1 : Weapons : 2
+j : 50012 :    Find the Sorcerer : 20007 :   8.00 : Stone : 3 : Potions : 1 : Wands : 0 : Weapons : 1
+j : 50013 :                  Hit : 20007 :   6.00 : Stone : 2 : Potions : 2 : Wands : 1 : Weapons : 2
+j : 50014 :           Find Water : 20008 :   3.00 : Stone : 0 : Potions : 1 : Wands : 0 : Weapons : 1
+j : 50015 :             Get Help : 20009 :   7.00 : Stone : 3 : Potions : 1 : Wands : 1 : Weapons : 2
+j : 50016 :    Find the Sorcerer : 20009 :   4.00 : Stone : 3 : Potions : 0 : Wands : 0 : Weapons : 2
+j : 50017 :                  Hit : 20010 :   6.00 : Stone : 3 : Potions : 2 : Wands : 1 : Weapons : 0
+j : 50018 :                Throw : 20011 :   7.00 : Stone : 2 : Potions : 2 : Wands : 0 : Weapons : 0
+j : 50019 :           Find Water : 20012 :   9.00 : Stone : 3 : Potions : 0 : Wands : 0 : Weapons : 0
+j : 50020 :             Get Help : 20012 :   4.00 : Stone : 2 : Potions : 1 : Wands : 1 : Weapons : 1
+j : 50021 :                  Hit : 20013 :   5.00 : Stone : 2 : Potions : 0 : Wands : 0 : Weapons : 1
+j : 50022 :                  Hit : 20013 :   2.00 : Stone : 2 : Potions : 2 : Wands : 0 : Weapons : 2
+j : 50023 :                Swing : 20014 :   4.00 : Stone : 3 : Potions : 0 : Wands : 1 : Weapons : 1
+j : 50024 :                Swing : 20015 :   8.00 : Stone : 1 : Potions : 0 : Wands : 1 : Weapons : 2
+j : 50025 :                  Hit : 20015 :   6.00 : Stone : 0 : Potions : 0 : Wands : 0 : Weapons : 1
+j : 50026 :                Swing : 20016 :   2.00 : Stone : 3 : Potions : 0 : Wands : 0 : Weapons : 2
+j : 50027 :                  Hit : 20016 :   1.00 : Stone : 2 : Potions : 0 : Wands : 1 : Weapons : 0
